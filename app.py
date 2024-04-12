@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, send_file
-from api.scraper import get_pages, save_to_file
+from scraper import get_pages, save_to_file
 
 app = Flask("job_seeker")
 

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+    <title>구인구직 탐색기</title>
+  </head>
+  <body>
+    <main class="container">
+      <h1 style="text-align: center">{{keyword}}에 대한 검색 결과</h1>
+      <a href="/export?keyword={{keyword}}">엑셀로 다운로드</a>
+      <table class="striped">
+        <thead>
+          <tr>
+            <th style="text-align: center">기업</th>
+            <th style="text-align: center">공고</th>
+            <th style="text-align: center">연봉</th>
+            <th style="text-align: center">모집기간</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for job in jobs %}
+          <tr>
+            <td>{{job.company}}</td>
+            <td><a href="{{job.url}}">{{job.title | truncate(34, true, '...')}}</a></td>
+            <td>{{job.money}}</td>
+            <td>{{job.date}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </main>
+  </body>
+</html>

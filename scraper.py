@@ -48,8 +48,8 @@ def get_pages(keyword):
   soup = BeautifulSoup(r.content, 'html.parser')
   page_number = len(soup.find("nav", class_="pagination").find_all("a"))+1
 
-  if page_number>10:
-    page_number = 10
+  if page_number>6:
+    page_number = 6
 
   for x in range(1, page_number):
     url = f"https://www.work.go.kr/wnSearch/unifSrch.do?regDateStdt=&regDateEndt=&colName=tb_workinfo&srchDateSelected=all&sortField=RANK&sortOrderBy=DESC&pageIndex={x}&tabName=tb_workinfo&dtlSearch=&query={keyword}&radio_period=on"

@@ -15,7 +15,7 @@ def search():
     if keyword in db:
         jobs= db[keyword]
     else:
-        jobs = get_pages("JAVA")
+        jobs = get_pages(keyword)
         db[keyword] =jobs
         return render_template("search.html", keyword=keyword, jobs=jobs)
 

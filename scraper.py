@@ -6,7 +6,6 @@ all_jobs=[]
 
 def scrape_page(url):
   r = requests.get(url)
-  r.encoding = 'utf-8'  # 응답 객체의 인코딩을 'utf-8'로 설정
   
   soup = BeautifulSoup(r.content, 'html.parser')
   jobs = soup.find("ul", class_="line-dot").find_all("li", class_="cont-right")

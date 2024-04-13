@@ -5,11 +5,7 @@ import csv
 all_jobs=[]
 
 def scrape_page(url):
-  r = requests.get(url,
-      headers={
-          "User-Agent":
-          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-      })
+  r = requests.get(url)
   r.encoding = 'utf-8'  # 응답 객체의 인코딩을 'utf-8'로 설정
   
   soup = BeautifulSoup(r.content, 'html.parser')
@@ -38,11 +34,7 @@ def scrape_page(url):
     
 
 def get_pages(keyword):
-  r = requests.get(f"https://www.work.go.kr/wnSearch/unifSrch.do?regDateStdt=&regDateEndt=&colName=tb_workinfo&srchDateSelected=all&sortField=RANK&sortOrderBy=DESC&pageIndex=1&tabName=tb_workinfo&dtlSearch=&query={keyword}&radio_period=on",
-      headers={
-          "User-Agent":
-          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-      })
+  r = requests.get(f"https://www.work.go.kr/wnSearch/unifSrch.do?regDateStdt=&regDateEndt=&colName=tb_workinfo&srchDateSelected=all&sortField=RANK&sortOrderBy=DESC&pageIndex=1&tabName=tb_workinfo&dtlSearch=&query={keyword}&radio_period=on")
   r.encoding = 'utf-8' 
   
   soup = BeautifulSoup(r.content, 'html.parser')

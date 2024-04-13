@@ -22,9 +22,9 @@
         <tbody>
           {% for job in jobs %}
           <tr>
-            <td>{{job.company}}</td>
-            <td><a href="{{job.url}}">{{job.title | truncate(34, true, '...')}}</a></td>
-            <td>{{job.money}}</td>
+            <td>{{job.company| truncate(18, true, '...')}}</td>
+            <td><a href="{{job.url}}">{{job.title | truncate(30, true, '...')}}</a></td>
+            <td style="width: 24%">{{job.money}}</td>
             <td>{{job.date}}</td>
           </tr>
           {% endfor %}
